@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.8.1
+      - name: Install requirements
+        run: |
+          npm install -g freyr
+          curl -Lo file.zip https://github.com/miraclx/atomicparsley/releases/download/20230114.175602.21bde60/AtomicParsleyLinux.zip
+          unzip file.zip
+          ls

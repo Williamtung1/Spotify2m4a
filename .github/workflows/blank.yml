@@ -25,6 +25,7 @@ jobs:
       - name: Downloading
         run:  |
           cd products
+          ls
           freyr ${{ inputs.url }}
         
       - name: Upload a Build Artifact

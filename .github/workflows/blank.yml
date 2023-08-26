@@ -1,11 +1,12 @@
 name: CI
-inputs:
-  url: 
-    description: 'Enter the link of the Spotify album, song, or playlist'
-    required: true
-    default: 'https://open.spotify.com/album/2aoSpTAjFaMvaZeruqnCVv'
+
 on:
   workflow_dispatch:
+    inputs:
+      url: 
+        description: 'Enter the link of the Spotify album, song, or playlist'
+        required: true
+        default: 'https://open.spotify.com/album/2aoSpTAjFaMvaZeruqnCVv'
 jobs:
   build:
     runs-on: ubuntu-latest

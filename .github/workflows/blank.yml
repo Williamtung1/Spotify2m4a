@@ -18,14 +18,15 @@ jobs:
       - name: Install requirements
         run: |
           npm install -g freyr
-          curl -Lo file.zip https://github.com/miraclx/atomicparsley/releases/download/20230114.175602.21bde60/AtomicParsleyLinux.zip
+          #curl -Lo file.zip https://github.com/miraclx/atomicparsley/releases/download/20230114.175602.21bde60/AtomicParsleyLinux.zip
           mkdir products
-          unzip file.zip -d ./products
+          #unzip file.zip -d ./products
+          sudo apt-get install atomicparsley
           npm install -g freyr
       - name: Downloading
         run:  |
           cd products
-          ls
+          
           freyr ${{ inputs.url }}
         
       - name: Upload a Build Artifact

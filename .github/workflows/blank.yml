@@ -1,11 +1,10 @@
 name: CI
-
+inputs:
+  url: 
+    description: 'Enter the link of the Spotify album, song, or playlist'
+    required: true
+    default: 'https://open.spotify.com/album/2aoSpTAjFaMvaZeruqnCVv'
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
   workflow_dispatch:
 jobs:
   build:
@@ -25,7 +24,7 @@ jobs:
       - name: Downloading
         run:  |
           mkdir products && cd products
-          freyr ${{ inputs.music2bedownloaded }}
+          freyr ${{ inputs.url }}
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2

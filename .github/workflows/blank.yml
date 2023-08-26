@@ -24,7 +24,7 @@ jobs:
           npm install -g freyr
       - name: Downloading
         run:  |
-          cd products
+          mkdir products && cd products
           freyr ${{ inputs.music2bedownloaded }}
         
       - name: Upload a Build Artifact
